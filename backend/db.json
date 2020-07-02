@@ -14,6 +14,21 @@
       "id": 3,
       "price": 5000.89,
       "name": "Celular"
+    },
+    {
+      "name": "Alisson Henrique",
+      "price": "88888",
+      "id": 4
+    },
+    {
+      "name": "567768",
+      "price": "678",
+      "id": 5
+    },
+    {
+      "name": "34534",
+      "price": "5345",
+      "id": 6
     }
   ]
 }
