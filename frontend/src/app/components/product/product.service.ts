@@ -7,6 +7,7 @@ import { Observable, EMPTY } from 'rxjs';
 import { map, catchError } from 'rxjs/operators';
 
 const urlProducts: string = '/products';
+
 @Injectable({
   providedIn: 'root',
 })
@@ -34,6 +35,30 @@ export class ProductService {
   }
   read(): Observable<IProduct[]> {
     return this.http.get<IProduct[]>(api + urlProducts).pipe(
+      map((obj) => obj),
+      catchError((e) => this.errorHandler(e))
+    );
+  }
+  readById(id: number): Observable<IProduct> {
+    const url = `${api}${urlProducts}/${id}`;
+
+    return this.http.get<IProduct>(url).pipe(
+      map((obj) => obj),
+      catchError((e) => this.errorHandler(e))
+    );
+  }
+
+  update(product: IProduct): Observable<IProduct> {
+    const url = `${api}${urlProducts}/${product.id}`;
+    return this.http.put<IProduct>(url, product).pipe(
+      map((obj) => obj),
+      catchError((e) => this.errorHandler(e))
+    );
+  }
+
+  delete(id: number): Observable<IProduct> {
+    const url = `${api}${urlProducts}/${id}`;
+    return this.http.delete<IProduct>(url).pipe(
       map((obj) => obj),
       catchError((e) => this.errorHandler(e))
     );
