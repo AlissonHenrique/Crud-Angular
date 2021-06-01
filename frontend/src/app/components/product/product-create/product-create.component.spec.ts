@@ -4,22 +4,18 @@ import { ProductCreateComponent } from './product-create.component';
 describe('ProductCreateComponent', () => {
   let component: ProductCreateComponent;
   let fixture: ComponentFixture<ProductCreateComponent>;
+  let button: HTMLElement;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ProductCreateComponent],
-    }).compileComponents();
+    });
   }));
+  fixture = TestBed.createComponent(ProductCreateComponent);
+  component = fixture.componentInstance;
+  button = fixture.nativeElement.querySelector('button');
 
-  beforeEach(() => {
-    fixture = TestBed.createComponent(ProductCreateComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
-  // beforeEach(() => {
-  //   const component = new ProductCreateComponent();
-  // });
   it('should render component', () => {
-    expect(component).toBeTruthy();
+    expect(button.textContent).toContain('Salvar');
   });
 });
