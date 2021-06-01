@@ -1,5 +1,4 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { ProductCreateComponent } from './product-create.component';
 
 describe('ProductCreateComponent', () => {
@@ -8,9 +7,8 @@ describe('ProductCreateComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ProductCreateComponent ]
-    })
-    .compileComponents();
+      declarations: [ProductCreateComponent],
+    }).compileComponents();
   }));
 
   beforeEach(() => {
@@ -18,8 +16,10 @@ describe('ProductCreateComponent', () => {
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
-
-  it('should create', () => {
+  // beforeEach(() => {
+  //   const component = new ProductCreateComponent();
+  // });
+  it('should render component', () => {
     expect(component).toBeTruthy();
   });
 });
