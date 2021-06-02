@@ -1,21 +1,23 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ProductCreateComponent } from './product-create.component';
 
 describe('ProductCreateComponent', () => {
   let component: ProductCreateComponent;
   let fixture: ComponentFixture<ProductCreateComponent>;
-  let button: HTMLElement;
+  let h1: HTMLElement;
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
       declarations: [ProductCreateComponent],
-    });
-  }));
-  fixture = TestBed.createComponent(ProductCreateComponent);
-  component = fixture.componentInstance;
-  button = fixture.nativeElement.querySelector('button');
+    }).compileComponents();
+  });
+  beforeEach(() => {
+    fixture = TestBed.createComponent(ProductCreateComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
 
   it('should render component', () => {
-    expect(button.textContent).toContain('Salvar');
+    expect(component).toBeTruthy();
   });
 });
